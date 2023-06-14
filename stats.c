@@ -37,7 +37,9 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-
+  print_array(test, SIZE);
+  float a = find_median(test, SIZE);
+  printf("%f\n", a);
 }
 
 /* Add other Implementation File Code Here */
@@ -46,25 +48,77 @@ void print_statistics(unsigned char *arr) {
 }
 
 void print_array(unsigned char *arr, unsigned int size) {
-
+  printf("Array: ");
+    for (int i = 0; i < size; ++i) {
+        printf("%hhu ", arr[i]);
+    }
+    printf("\n");
 }
 
 float find_median(unsigned char *arr, unsigned int size) {
+  sort_array(arr, size);
 
+  if (size % 2 != 0) {
+    return arr[size / 2];
+  } else {
+    unsigned char middle1 = arr[(size / 2) - 1];
+    unsigned char middle2 = arr[size / 2];
+    return (float) (middle1 + middle2) / 2;
+  }
 }
 
-float find_mean(unsigned char *arr, unsigned int size) {
+double find_mean(unsigned char *arr, unsigned int size) {
+  if (size == 0) {
+        return 0.0;  
+    }
 
+    unsigned int sum = 0;
+    for (size_t i = 0; i < size; ++i) {
+        sum += arr[i];
+    }
+
+    return (double)sum / size;
 }
 
 unsigned char find_maximum(unsigned char *arr, unsigned int size) {
+  if (size == 0) {
+        return 0;
+    }
 
+    unsigned char max = arr[0];
+    for (size_t i = 1; i < size; ++i) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+
+    return max;
 }
 
 unsigned char find_minimum(unsigned char *arr, unsigned int size) {
+  if (size == 0) {
+        return 0;
+    }
 
+    unsigned char min = arr[0];
+    for (size_t i = 1; i < size; ++i) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+
+    return min;
 }
 
 void sort_array(unsigned char *arr, unsigned int size) {
-
+  for (size_t i = 0; i < size - 1; ++i) {
+        for (size_t j = 0; j < size - i - 1; ++j) {
+            if (arr[j] < arr[j + 1]) {
+                // Swap arr[j] and arr[j + 1]
+                unsigned char temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
 }

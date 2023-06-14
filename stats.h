@@ -49,12 +49,12 @@ void print_array(unsigned char *arr, unsigned int size);
  * @brief Find median value of array
  *
  * This function, given an array of unsigned chars and its size
- * will return the median float value of the array.
+ * will return the median value of the array.
  *
  * @param arr Unsigned char array
  * @param size Integer size of array
  *
- * @return Median value of array as a float
+ * @return Median value of array
  */
 float find_median(unsigned char *arr, unsigned int size);
 
@@ -62,14 +62,14 @@ float find_median(unsigned char *arr, unsigned int size);
  * @brief Find mean value of array
  *
  * This function, given an array of unsigned chars and its size
- * will return the mean float value of the array.
+ * will return the mean value of the array.
  *
  * @param arr Unsigned char array
  * @param size Integer size of array
  *
- * @return Mean value of array as a float
+ * @return Mean value of array
  */
-float find_mean(unsigned char *arr, unsigned int size);
+double find_mean(unsigned char *arr, unsigned int size);
 
 /**
  * @brief Find maximum value in array
