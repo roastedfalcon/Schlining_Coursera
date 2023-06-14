@@ -38,13 +38,21 @@ void main() {
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
   print_array(test, SIZE);
-  float a = find_median(test, SIZE);
-  printf("%f\n", a);
+  print_statistics(test);
 }
 
 /* Add other Implementation File Code Here */
 void print_statistics(unsigned char *arr) {
+  unsigned char median = find_median(arr, SIZE);
+  unsigned char mean = find_mean(arr, SIZE);
+  unsigned char max = find_maximum(arr, SIZE);
+  unsigned char min = find_minimum(arr, SIZE);
 
+  printf("Array statistics\n");
+  printf("Min: %hhu\n", min);
+  printf("Max: %hhu\n", max);
+  printf("Mean: %hhu\n", mean);
+  printf("Median: %hhu\n", median);
 }
 
 void print_array(unsigned char *arr, unsigned int size) {
@@ -55,7 +63,7 @@ void print_array(unsigned char *arr, unsigned int size) {
     printf("\n");
 }
 
-float find_median(unsigned char *arr, unsigned int size) {
+unsigned char find_median(unsigned char *arr, unsigned int size) {
   sort_array(arr, size);
 
   if (size % 2 != 0) {
@@ -63,11 +71,11 @@ float find_median(unsigned char *arr, unsigned int size) {
   } else {
     unsigned char middle1 = arr[(size / 2) - 1];
     unsigned char middle2 = arr[size / 2];
-    return (float) (middle1 + middle2) / 2;
+    return (middle1 + middle2) / 2;
   }
 }
 
-double find_mean(unsigned char *arr, unsigned int size) {
+unsigned char find_mean(unsigned char *arr, unsigned int size) {
   if (size == 0) {
         return 0.0;  
     }
@@ -77,7 +85,7 @@ double find_mean(unsigned char *arr, unsigned int size) {
         sum += arr[i];
     }
 
-    return (double)sum / size;
+    return sum / size;
 }
 
 unsigned char find_maximum(unsigned char *arr, unsigned int size) {

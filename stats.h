@@ -56,7 +56,7 @@ void print_array(unsigned char *arr, unsigned int size);
  *
  * @return Median value of array
  */
-float find_median(unsigned char *arr, unsigned int size);
+unsigned char find_median(unsigned char *arr, unsigned int size);
 
 /**
  * @brief Find mean value of array
@@ -69,7 +69,7 @@ float find_median(unsigned char *arr, unsigned int size);
  *
  * @return Mean value of array
  */
-double find_mean(unsigned char *arr, unsigned int size);
+unsigned char find_mean(unsigned char *arr, unsigned int size);
 
 /**
  * @brief Find maximum value in array
